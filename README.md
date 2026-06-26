@@ -12,7 +12,7 @@ https://github.com/gtortone/ToolDAQFramework
 ## Deploy container from ghcr.io
 
 ```
-docker run --name debian-12-cross-armhf-gh -e LANG=C.UTF-8 \
+docker run --name debian-12-cross-armhf -e LANG=C.UTF-8 \
   -it ghcr.io/gtortone/debian-12-cross-armhf:main /bin/bash -l
 ```
 
