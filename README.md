@@ -5,7 +5,8 @@ Docker image based on Debian for ARMhf/ARM64 cross-compilation
 
 This image offers a development environment for ARMhf/ARM64 with
 C/C++ compilers (arm-linux-gnueabihf, aarch64-linux-gnu) and a pre-installed
-ToolDAQFramework library in `/opt/armhf` based on:
+ToolDAQFramework library in `/usr/lib/arm-linux-gnueabihf` and
+`/usr/lib/aarch64-linux-gnu` based on:
 
 https://github.com/gtortone/ToolDAQFramework
 

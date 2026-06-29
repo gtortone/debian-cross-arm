@@ -44,7 +44,11 @@ RUN apt-get update && apt-get install -y \
     gcc-arm-linux-gnueabihf \
     g++-arm-linux-gnueabihf \
     libc6-armhf-cross \
-    libc6-dev-armhf-cross
+    libc6-dev-armhf-cross \
+    gcc-aarch64-linux-gnu \
+    g++-aarch64-linux-gnu \
+    libc6-arm64-cross \
+    libc6-dev-arm64-cross
 
 RUN mkdir /opt/scripts
 
