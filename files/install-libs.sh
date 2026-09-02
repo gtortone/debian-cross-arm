@@ -18,7 +18,8 @@ apt-get install -y zlib1g:armhf zlib1g-dev:armhf \
    libzstd-dev:armhf \
    libpython3.11:armhf \
    libpython3.11-dev:armhf \
-   libcurlpp0:armhf
+   libcurlpp0:armhf \
+   libcurlpp-dev:armhf
 
 apt-get install -y zlib1g:arm64 zlib1g-dev:arm64 \
    libboost-date-time-dev:arm64 \
@@ -31,7 +32,8 @@ apt-get install -y zlib1g:arm64 zlib1g-dev:arm64 \
    libzstd-dev:arm64 \
    libpython3.11:arm64 \
    libpython3.11-dev:arm64 \
-   libcurlpp0:arm64
+   libcurlpp0:arm64 \
+   libcurlpp-dev:arm64
 
 apt-get install -y zlib1g zlib1g-dev \
    libboost-date-time-dev \
