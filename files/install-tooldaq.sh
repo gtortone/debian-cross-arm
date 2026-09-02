@@ -12,7 +12,10 @@ apt-get install -y zlib1g:armhf zlib1g-dev:armhf \
    libczmq-dev:armhf \
    libzmq3-dev:armhf \
    libzstd1:armhf \
-   libzstd-dev:armhf
+   libzstd-dev:armhf \
+   libpython3.11:armhf \
+   libpython3.11-dev:armhf \
+   libcurlpp0:armhf
 
 apt-get install -y zlib1g:arm64 zlib1g-dev:arm64 \
    libboost-date-time-dev:arm64 \
@@ -22,7 +25,23 @@ apt-get install -y zlib1g:arm64 zlib1g-dev:arm64 \
    libczmq-dev:arm64 \
    libzmq3-dev:arm64 \
    libzstd1:arm64 \
-   libzstd-dev:arm64
+   libzstd-dev:arm64 \
+   libpython3.11:arm64 \
+   libpython3.11-dev:arm64 \
+   libcurlpp0:arm64
+
+apt-get install -y zlib1g zlib1g-dev \
+   libboost-date-time-dev \
+   libboost-serialization-dev \
+   libboost-iostreams-dev \
+   libzmq5 \
+   libczmq-dev \
+   libzmq3-dev \
+   libzstd1 \
+   libpython3.11 \
+   libpython3.11-dev \
+   libcurlpp0 \
+   libcurlpp-dev
 
 mkdir /opt/arm /opt/noarch
 
@@ -34,21 +53,22 @@ cd cppzmq
 cp zmq.hpp /usr/include
 cp zmq_addon.hpp /usr/include
 
+# disabled
 
-cd /opt/arm
-git clone https://github.com/gtortone/ToolDAQFramework.git
-
-# ARMHF
-cd /opt/arm/ToolDAQFramework
-cmake -B build-armhf -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-linux-gnueabihf.cmake
-make -j -C build-armhf
-cp build-armhf/include/*.h /usr/include
-cp build-armhf/lib/*.so /usr/lib/arm-linux-gnueabihf
-cp build-armhf/lib/*.a /usr/lib/arm-linux-gnueabihf
-
-# ARM64
-cd /opt/arm/ToolDAQFramework
-cmake -B build-arm64 -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-aarch64-linux-gnu.cmake
-make -j -C build-arm64
-cp build-arm64/lib/*.so /usr/lib/aarch64-linux-gnu/
-cp build-arm64/lib/*.a /usr/lib/aarch64-linux-gnu/
+#cd /opt/arm
+#git clone https://github.com/gtortone/ToolDAQFramework.git
+#
+## ARMHF
+#cd /opt/arm/ToolDAQFramework
+#cmake -B build-armhf -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-linux-gnueabihf.cmake
+#make -j -C build-armhf
+#cp build-armhf/include/*.h /usr/include
+#cp build-armhf/lib/*.so /usr/lib/arm-linux-gnueabihf
+#cp build-armhf/lib/*.a /usr/lib/arm-linux-gnueabihf
+#
+## ARM64
+#cd /opt/arm/ToolDAQFramework
+#cmake -B build-arm64 -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-aarch64-linux-gnu.cmake
+#make -j -C build-arm64
+#cp build-arm64/lib/*.so /usr/lib/aarch64-linux-gnu/
+#cp build-arm64/lib/*.a /usr/lib/aarch64-linux-gnu/

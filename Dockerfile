@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y \
     readline-common \
     dnsutils \
     apt-utils \
-    curl \
     build-essential \
     automake \
     autogen \
@@ -48,7 +47,10 @@ RUN apt-get update && apt-get install -y \
     gcc-aarch64-linux-gnu \
     g++-aarch64-linux-gnu \
     libc6-arm64-cross \
-    libc6-dev-arm64-cross
+    libc6-dev-arm64-cross \
+    python3-pybind11 \
+    pybind11-dev \
+    nlohmann-json3-dev
 
 RUN mkdir /opt/scripts
 
