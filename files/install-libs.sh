@@ -43,7 +43,7 @@ apt-get install -y zlib1g zlib1g-dev \
    libcurlpp0 \
    libcurlpp-dev
 
-mkdir /opt/arm /opt/noarch
+mkdir /opt/noarch
 
 # NOARCH
 
@@ -53,22 +53,3 @@ cd cppzmq
 cp zmq.hpp /usr/include
 cp zmq_addon.hpp /usr/include
 
-# disabled
-
-#cd /opt/arm
-#git clone https://github.com/gtortone/ToolDAQFramework.git
-#
-## ARMHF
-#cd /opt/arm/ToolDAQFramework
-#cmake -B build-armhf -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-linux-gnueabihf.cmake
-#make -j -C build-armhf
-#cp build-armhf/include/*.h /usr/include
-#cp build-armhf/lib/*.so /usr/lib/arm-linux-gnueabihf
-#cp build-armhf/lib/*.a /usr/lib/arm-linux-gnueabihf
-#
-## ARM64
-#cd /opt/arm/ToolDAQFramework
-#cmake -B build-arm64 -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-aarch64-linux-gnu.cmake
-#make -j -C build-arm64
-#cp build-arm64/lib/*.so /usr/lib/aarch64-linux-gnu/
-#cp build-arm64/lib/*.a /usr/lib/aarch64-linux-gnu/

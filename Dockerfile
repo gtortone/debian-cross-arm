@@ -55,7 +55,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /opt/scripts
 
 COPY files/bashrc /root/.bashrc
-COPY files/install-tooldaq.sh /opt/scripts
+COPY files/install-libs.sh /opt/scripts
 COPY files/vimrc /root/.vimrc
 
-RUN chmod +x /opt/scripts/install-tooldaq.sh && /opt/scripts/install-tooldaq.sh
+RUN chmod +x /opt/scripts/install-libs.sh && /opt/scripts/install-libs.sh
