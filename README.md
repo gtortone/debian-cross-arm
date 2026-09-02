@@ -8,7 +8,7 @@ C/C++ compilers (arm-linux-gnueabihf, aarch64-linux-gnu) and a pre-installed
 ToolDAQFramework library in `/usr/lib/arm-linux-gnueabihf` and
 `/usr/lib/aarch64-linux-gnu` based on:
 
-https://github.com/gtortone/ToolDAQFramework
+https://github.com/gtortone/libToolDAQ
 
 ## Deploy container from ghcr.io
 
