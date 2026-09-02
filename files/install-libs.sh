@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# configure GIT to use HTTP/1.1
+git config --global http.version HTTP/1.1
+
 dpkg --add-architecture armhf 
 dpkg --add-architecture arm64
 apt-get update
