@@ -1,14 +1,17 @@
 ARG DEBIAN_VERSION=12
 FROM debian:${DEBIAN_VERSION}
 
+ARG DEBIAN_VERSION
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
+    man \
+    debootstrap \
     dialog \
     readline-common \
     dnsutils \
     apt-utils \
-    build-essential \
     automake \
     autogen \
     bash \
@@ -47,15 +50,12 @@ RUN apt-get update && apt-get install -y \
     gcc-aarch64-linux-gnu \
     g++-aarch64-linux-gnu \
     libc6-arm64-cross \
-    libc6-dev-arm64-cross \
-    python3-pybind11 \
-    pybind11-dev \
-    nlohmann-json3-dev
+    libc6-dev-arm64-cross
 
 RUN mkdir /opt/scripts
 
 COPY files/bashrc /root/.bashrc
-COPY files/install-libs.sh /opt/scripts
+COPY files/install-sysroots.sh /opt/scripts
 COPY files/vimrc /root/.vimrc
 
-RUN chmod +x /opt/scripts/install-libs.sh && /opt/scripts/install-libs.sh
+RUN chmod +x /opt/scripts/install-sysroots.sh && /opt/scripts/install-sysroots.sh

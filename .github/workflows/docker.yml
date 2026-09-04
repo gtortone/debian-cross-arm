@@ -1,41 +1,46 @@
-name: Build and Push Docker Image
 
+name: Build and Push Docker Image
 on:
   push:
     branches:
       - main
     tags:
       - 'v*'
-
 permissions:
   contents: read
   packages: write
-
 jobs:
   docker:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        debian_version: ['12', '13']
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository_owner }}/debian-12-cross-arm
-
+          images: ghcr.io/${{ github.repository_owner }}/debian-cross-arm
+          flavor: |
+            latest=false
+          # Single tag matching the Debian major version: :12 and :13
+          tags: |
+            type=raw,value=${{ matrix.debian_version }}
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
+          build-args: |
+            DEBIAN_VERSION=${{ matrix.debian_version }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
