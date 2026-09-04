@@ -14,13 +14,13 @@ https://github.com/gtortone/libToolDAQ
 
 ```
 docker run --name debian-12-cross-arm -e LANG=C.UTF-8 \
-  -it ghcr.io/gtortone/debian-12-cross-arm:main /bin/bash -l
+  -it ghcr.io/gtortone/debian-cross-arm:12 /bin/bash -l
 ```
 
 ## Create image
 
 ```
-docker build --no-cache --build-arg DEBIAN_VERSION=12 --tag debian-12-cross-arm .
+docker build --no-cache --build-arg DEBIAN_VERSION=12 --tag debian-cross-arm:12 .
 ```
 
 Change DEBIAN_VERSION to test different Debian releases.
